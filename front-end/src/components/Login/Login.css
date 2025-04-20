@@ -1,0 +1,211 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  @keyframes gradientBg {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(46, 204, 113, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(46, 204, 113, 0);
+    }
+  }
+  
+  body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8f5e9 100%);
+    background-size: 400% 400%;
+    animation: gradientBg 15s ease infinite;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .auth-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.8s ease-out;
+  }
+  
+  .auth-card {
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(46, 204, 113, 0.15);
+    padding: 2.5rem;
+    width: 90%;
+    max-width: 420px;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 0.8s ease-out;
+  }
+  
+  .auth-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, #2ecc71, #a8e063);
+  }
+  
+  .auth-title {
+    text-align: center;
+    margin-bottom: 2.2rem;
+    color: #2c3e50;
+    font-size: 2rem;
+    font-weight: 700;
+    position: relative;
+  }
+  
+  .auth-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #2ecc71, #a8e063);
+    border-radius: 2px;
+  }
+  
+  .form-group {
+    margin-bottom: 1.8rem;
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+    color: #34495e;
+    font-size: 0.95rem;
+    transition: transform 0.3s;
+  }
+  
+  input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s;
+    background-color: #f9f9f9;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #2ecc71;
+    box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.1);
+    background-color: white;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    background: linear-gradient(90deg, #2ecc71, #a8e063);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.2);
+    animation: pulse 2s infinite;
+  }
+  
+  .submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(46, 204, 113, 0.3);
+  }
+  
+  .submit-btn:active {
+    transform: translateY(1px);
+  }
+  
+  .toggle-text {
+    text-align: center;
+    margin-top: 2rem;
+    color: #7f8c8d;
+    font-size: 0.95rem;
+    animation: fadeIn 1s ease-out;
+  }
+  
+  .toggle-link {
+    color: #2ecc71;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+  }
+  
+  .toggle-link:hover {
+    color: #27ae60;
+    text-decoration: underline;
+  }
+  
+  /* Animation for switching between forms */
+  .form-group, .submit-btn {
+    animation-fill-mode: both;
+    animation-duration: 0.5s;
+  }
+  
+  .form-group:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+  
+  .form-group:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .form-group:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+  
+  .submit-btn {
+    animation-delay: 0.4s;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
+    .auth-card {
+      width: 95%;
+      padding: 2rem;
+    }
+  }
